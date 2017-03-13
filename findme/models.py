@@ -1,12 +1,17 @@
+"""
+Michael duPont - michael@mdupont.com
+"""
+
+import pickle
 from os import path, mkdir
 import cv2
 from keras.layers import Activation, Convolution2D, Dense, Dropout, Flatten, Input, MaxPooling2D
 from keras.models import Sequential, Model, model_from_json
+from sklearn.utils import shuffle
 
 ##---------- Face Finder ----------##
 
-CC_WEIGHTS = 'haar_cc_front_face.xml'
-CASCADE = cv2.CascadeClassifier(CC_WEIGHTS)
+CASCADE = cv2.CascadeClassifier('haar_cc_front_face.xml')
 
 def find_faces(img: 'np.ndarray') -> [(int)]:
     """Returns a list of bounding boxes for every face found in an image"""
@@ -46,14 +51,37 @@ def save_model(user: str, model: Sequential):
     print(model.to_json(), file=open(fpath+'/model.json', 'w'))
     model.save_weights(fpath+'/model.h5')
 
-def train(user, img):
-    """"""
+def add_img(user, img):
+    """Add an image to a user's image corpus. Creates one is none exists"""
+    fpath = 'user_models/'+user
+    if not path.isdir(fpath):
+        mkdir(fpath)
+    fpath += '/imgs.pkl'
+    corpus = pickle.load(open(fpath, 'rb')) if path.isfile(fpath) else []
+    corpus.append(img)
+    pickle.dump(corpus, open(fpath, 'wb'))
+
+def load_data(user: str) -> (['np.ndarray'], [bool]):
+    """Returns a shuffled list of base and user feature-value pairs for training"""
+    fpath = 'user_models/'+user
+    if not path.isdir(fpath):
+        return None
+    corpus = pickle.load(open('base_corpus.pkl', 'rb'))
+    values = [False] * len(corpus)
+    ucorpus = pickle.load(open(fpath+'/imgs.pkl', 'rb'))
+    corpus += ucorpus
+    values += [True] * len(ucorpus)
+    return shuffle(corpus, values)
+
+def train(user: str):
+    """Train a user's model over their uploaded corpus"""
+    imgs, values = load_data(user)
     model = get_model(user)
-    #do stuff
+    model.fit(imgs, values, samples_per_epoch=len(values), nb_epoch=5)
     save_model(user, model)
 
 def evaluate(user, img) -> bool:
-    """"""
+    """Determine if a face is a user's target according to their trained model"""
     model = get_model(user)
-    #do stuff
-    return True
+    ret = model.predict(img, batch_size=1)
+    return ret
