@@ -5,17 +5,17 @@ from keras.models import Sequential, Model, model_from_json
 
 ##---------- Face Finder ----------##
 
-CC_WEIGHTS = ''
+CC_WEIGHTS = 'haar_cc_front_face.xml'
 CASCADE = cv2.CascadeClassifier(CC_WEIGHTS)
 
 def find_faces(img: 'np.ndarray') -> [(int)]:
-    """"""
+    """Returns a list of bounding boxes for every face found in an image"""
     return CASCADE.detectMultiScale(
         cv2.cvtColor(img, cv2.COLOR_RGB2GRAY),
         scaleFactor=1.1,
         minNeighbors=5,
         minSize=(30, 30),
-        flags = cv2.cv.CV_HAAR_SCALE_IMAGE
+        flags=cv2.cv.CV_HAAR_SCALE_IMAGE
     )
 
 ##---------- Facial Recognition Model ----------##
@@ -23,12 +23,12 @@ def find_faces(img: 'np.ndarray') -> [(int)]:
 #TODO: test loading single model.json file
 
 def make_model() -> Sequential:
-    """"""
+    """Create a Sequential Keras model to boolean classify faces"""
     model = Sequential()
     return model
 
 def get_model(user: str) -> Sequential:
-    """"""
+    """Load a user's existing model or create a new one"""
     fpath = 'user_models/'+user
     if path.isdir(fpath):
         model = model_from_json(open(fpath+'/model.json').read())

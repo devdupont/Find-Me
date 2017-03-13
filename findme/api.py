@@ -6,8 +6,12 @@ Usage: gunicorn -b 0.0.0.0 api:APP
 
 from json import dumps
 import falcon
-from cv2 import crop
 from models import find_faces, train, evaluate
+
+def crop(img: 'np.ndarray', bounding_box: [int]) -> 'np.ndarray':
+    """Crop an image to a bounding box (x,y,w,h)"""
+    x, y, w, h = bounding_box
+    return img[y: y+h, x: x+w]
 
 class FindMeAPI:
     """"""
