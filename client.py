@@ -2,6 +2,7 @@
 Michael duPont - michael@mdupont.com
 """
 
+#libraries
 import cv2
 import requests
 

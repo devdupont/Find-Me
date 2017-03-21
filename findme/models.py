@@ -2,8 +2,10 @@
 Michael duPont - michael@mdupont.com
 """
 
+#stdlib
 import pickle
 from os import path, mkdir
+#libraries
 import cv2
 from keras.layers import Activation, Convolution2D, Dense, Dropout, Flatten, Input, MaxPooling2D
 from keras.models import Sequential, Model, model_from_json
@@ -11,7 +13,7 @@ from sklearn.utils import shuffle
 
 ##---------- Face Finder ----------##
 
-CASCADE = cv2.CascadeClassifier('haar_cc_front_face.xml')
+CASCADE = cv2.CascadeClassifier(__file__.replace('models.py', '')+'haar_cc_front_face.xml')
 
 def find_faces(img: 'np.ndarray') -> [(int)]:
     """Returns a list of bounding boxes for every face found in an image"""
@@ -20,7 +22,7 @@ def find_faces(img: 'np.ndarray') -> [(int)]:
         scaleFactor=1.1,
         minNeighbors=5,
         minSize=(30, 30),
-        flags=cv2.cv.CV_HAAR_SCALE_IMAGE
+        flags=cv2.CASCADE_SCALE_IMAGE
     )
 
 ##---------- Facial Recognition Model ----------##

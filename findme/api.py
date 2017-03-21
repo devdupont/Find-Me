@@ -4,9 +4,12 @@ Michael duPont - michael@mdupont.com
 Usage: gunicorn -b 0.0.0.0 api:APP
 """
 
+#stdlib
 from json import dumps
+#libraries
 import falcon
-from models import find_faces, add_img, train, evaluate
+#module
+from findme.models import find_faces, add_img, train, evaluate
 
 def crop(img: 'np.ndarray', bounding_box: [int]) -> 'np.ndarray':
     """Crop an image to a bounding box (x,y,w,h)"""
