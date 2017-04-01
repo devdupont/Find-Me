@@ -13,15 +13,15 @@ from sklearn.utils import shuffle
 
 ##---------- Face Finder ----------##
 
-CASCADE = cv2.CascadeClassifier(__file__.replace('models.py', '')+'haar_cc_front_face.xml')
+CASCADE = cv2.CascadeClassifier(__file__.replace('models.py', 'haar_cc_front_face.xml'))
 
-def find_faces(img: 'np.ndarray') -> [(int)]:
+def find_faces(img: 'np.ndarray', sf=1.16, mn=5) -> [(int)]:
     """Returns a list of bounding boxes for every face found in an image"""
     return CASCADE.detectMultiScale(
         cv2.cvtColor(img, cv2.COLOR_RGB2GRAY),
-        scaleFactor=1.1,
-        minNeighbors=5,
-        minSize=(30, 30),
+        scaleFactor=sf,
+        minNeighbors=mn,
+        minSize=(45, 45),
         flags=cv2.CASCADE_SCALE_IMAGE
     )
 
@@ -29,9 +29,17 @@ def find_faces(img: 'np.ndarray') -> [(int)]:
 
 #TODO: test loading single model.json file
 
-def make_model() -> Sequential:
+def make_model(shape) -> Sequential:
     """Create a Sequential Keras model to boolean classify faces"""
     model = Sequential()
+    model.add(Dense(512,input_shape=shape))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(512))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(nb_classes))
+    model.add(Activation('softmax'))
     return model
 
 def get_model(user: str) -> Sequential:
