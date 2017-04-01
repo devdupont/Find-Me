@@ -21,12 +21,11 @@ def draw_boxes(bboxes: [[int]], img: 'np.array') -> 'np.array':
 
 def test_find_faces():
     """Find faces for each test image"""
-    base = 'test_imgs/find_faces/test{}.jpg'
-    for i in range(1, 6):
-        img = imread(base.format(i))
+    for fname in glob('test_imgs/group*.jpg'):
+        img = imread(fname)
         bboxes = find_faces(img)
         print(bboxes)
-        imsave(base.format(str(i)+'.out'), draw_boxes(bboxes, img))
+        imsave(fname.replace('/', '/find_faces/'), draw_boxes(bboxes, img))
 
 ##----------  ----------##
 
@@ -38,10 +37,8 @@ def corpus_create():
         img = imread(fname)
         bboxes = find_faces(img)
         for x, y, w, h in bboxes:
-            cropped = img[x:x+w, y:y+h]
-            if len(cropped) > 0: #Cannot use 'if cropped' due to numpy handling
-                imsave(base.format(i), cropped)
-                i += 1
+            cropped = img[y:y+h, x:x+w]
+            i += 1
 
 def corpus_update():
     """Creates base_corpus.pkl from face imgs in test_imgs/corpus"""
