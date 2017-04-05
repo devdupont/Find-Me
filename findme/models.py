@@ -38,7 +38,7 @@ def make_model(shape) -> Sequential:
     model.add(Dense(512))
     model.add(Activation('relu'))
     model.add(Dropout(0.2))
-    model.add(Dense(nb_classes))
+    model.add(Dense(2))
     model.add(Activation('softmax'))
     return model
 

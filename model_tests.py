@@ -38,6 +38,7 @@ def corpus_create():
         bboxes = find_faces(img)
         for x, y, w, h in bboxes:
             cropped = img[y:y+h, x:x+w]
+            imsave(base.format(i), cropped)
             i += 1
 
 def corpus_update():
