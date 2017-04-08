@@ -1,8 +1,5 @@
 # Find-Me
 
+## Michael duPont - Orlando CodeCamp 2017
 
-
-Face bounding box: https://realpython.com/blog/python/face-recognition-with-python/
-https://github.com/mzaradzki/neuralnets/blob/master/vgg_faces_keras/vgg_faces_demo.ipynb
-
-Keras model: https://github.com/rajathkumarmp/FaceRecog-Keras/blob/master/faceRecog.ipynb
+[Presentation Slides](https://docs.google.com/presentation/d/16HcdSUiWLiHwND8II4LmQg0ncDq7t8K2mPic48ZOk7I/edit?usp=sharing)
