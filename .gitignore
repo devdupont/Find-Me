@@ -87,7 +87,3 @@ ENV/
 
 # Rope project settings
 .ropeproject
-
-
-test_imgs/corpus/*
-test_imgs/find_faces/*
