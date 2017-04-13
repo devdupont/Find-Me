@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>FindMe</title>
+<title>FindMe-Dev</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11760,7 +11760,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">cv2</span>
@@ -11796,14 +11796,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib.image</span> <span class="k">import</span> <span class="n">imread</span><span class="p">,</span> <span class="n">imsave</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;test_imgs/group0.jpg&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;test_imgs/initial/group0.jpg&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -11814,11 +11814,11 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x10e9eaa90&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x112c356d8&gt;</pre>
 </div>
 
 </div>
@@ -14550,7 +14550,7 @@ wggjXAT4v+8v2qUYFGmOAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">glob</span> <span class="k">import</span> <span class="n">glob</span>
@@ -14562,11 +14562,11 @@ wggjXAT4v+8v2qUYFGmOAAAAAElFTkSuQmCC
     <span class="k">return</span> <span class="n">img</span>
 
 <span class="c1">#Find faces for each test image</span>
-<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;test_imgs/group*.jpg&#39;</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;test_imgs/initial/group*.jpg&#39;</span><span class="p">):</span>
     <span class="n">img</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
     <span class="n">bboxes</span> <span class="o">=</span> <span class="n">find_faces</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">bboxes</span><span class="p">)</span>
-    <span class="n">imsave</span><span class="p">(</span><span class="n">fname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;/find_faces/&#39;</span><span class="p">),</span> <span class="n">draw_boxes</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">img</span><span class="p">))</span>
+    <span class="n">imsave</span><span class="p">(</span><span class="n">fname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;initial&#39;</span><span class="p">,</span> <span class="s1">&#39;find_faces&#39;</span><span class="p">),</span> <span class="n">draw_boxes</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">img</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;test_imgs/find_faces/group0.jpg&#39;</span><span class="p">))</span>
 </pre></div>
@@ -14598,9 +14598,9 @@ wggjXAT4v+8v2qUYFGmOAAAAAElFTkSuQmCC
  [229  95  51  51]]
 [[176 121  76  76]
  [450  73  67  67]
- [244  83  72  72]
- [633  30  85  85]
  [114  46  73  73]
+ [633  30  85  85]
+ [244  83  72  72]
  [358  96  83  83]
  [527  91  83  83]
  [171 200  79  79]]
@@ -14608,11 +14608,11 @@ wggjXAT4v+8v2qUYFGmOAAAAAElFTkSuQmCC
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x10ec9ec18&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x11778e7f0&gt;</pre>
 </div>
 
 </div>
@@ -17307,7 +17307,7 @@ Y8wbGhoaNgCNMW9oaGjYADTGvKGhoWED0BjzhoaGhg3A/wKfEmVJGP9algAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Creates cropped faces for imgs matching &#39;test_imgs/group*.jpg&#39;</span>
@@ -17331,7 +17331,7 @@ Y8wbGhoaNgCNMW9oaGjYADTGvKGhoWED0BjzhoaGhg3A/wKfEmVJGP9algAAAABJRU5ErkJggg==
             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">i</span>
 
-<span class="n">found</span> <span class="o">=</span> <span class="n">pull_faces</span><span class="p">(</span><span class="s1">&#39;test_imgs/group*.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;test_imgs/corpus/face</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="p">)</span>
+<span class="n">found</span> <span class="o">=</span> <span class="n">pull_faces</span><span class="p">(</span><span class="s1">&#39;test_imgs/initial/group*.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;test_imgs/corpus/face</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of base corpus faces found:&#39;</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;test_imgs/corpus/face0.jpg&#39;</span><span class="p">))</span>
@@ -17347,21 +17347,21 @@ Y8wbGhoaNgCNMW9oaGjYADTGvKGhoWED0BjzhoaGhg3A/wKfEmVJGP9algAAAABJRU5ErkJggg==
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>test_imgs/group0.jpg
-test_imgs/group1.jpg
-test_imgs/group2.jpg
-test_imgs/group3.jpg
-test_imgs/group4.jpg
+<pre>test_imgs/initial/group0.jpg
+test_imgs/initial/group1.jpg
+test_imgs/initial/group2.jpg
+test_imgs/initial/group3.jpg
+test_imgs/initial/group4.jpg
 Total number of base corpus faces found: 23
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x111b3db00&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x11877f6d8&gt;</pre>
 </div>
 
 </div>
@@ -17724,7 +17724,7 @@ QMCUIiz+gIApRVj8AQFTiv8fyZUI0Q3wwFkAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pickle</span> <span class="k">import</span> <span class="n">dump</span>
@@ -17751,10 +17751,10 @@ QMCUIiz+gIApRVj8AQFTiv8fyZUI0Q3wwFkAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="n">pull_faces</span><span class="p">(</span><span class="s1">&#39;test_imgs/me*.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;test_imgs/corpus/me</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="n">pull_faces</span><span class="p">(</span><span class="s1">&#39;test_imgs/initial/me*.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;test_imgs/corpus/me</span><span class="si">{}</span><span class="s1">.jpg&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total number of target faces found:&#39;</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;test_imgs/corpus/me0.jpg&#39;</span><span class="p">))</span>
@@ -17770,21 +17770,32 @@ QMCUIiz+gIApRVj8AQFTiv8fyZUI0Q3wwFkAAAAASUVORK5CYII=
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>test_imgs/me1.jpg
-test_imgs/me2.jpg
-test_imgs/me3.jpg
-test_imgs/me4.jpg
-test_imgs/me5.jpg
-Total number of target faces found: 8
+<pre>test_imgs/initial/me1.jpg
+test_imgs/initial/me10.jpg
+test_imgs/initial/me11.jpg
+test_imgs/initial/me12.jpg
+test_imgs/initial/me13.jpg
+test_imgs/initial/me14.jpg
+test_imgs/initial/me15.jpg
+test_imgs/initial/me16.jpg
+test_imgs/initial/me2.jpg
+test_imgs/initial/me3.jpg
+test_imgs/initial/me4.jpg
+test_imgs/initial/me5.jpg
+test_imgs/initial/me6.jpg
+test_imgs/initial/me7.jpg
+test_imgs/initial/me8.jpg
+test_imgs/initial/me9.jpg
+Total number of target faces found: 51
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x10ed41b00&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x112ee4780&gt;</pre>
 </div>
 
 </div>
@@ -19376,7 +19387,7 @@ b9k6v2Rfd6UT+D2kev0D4K993d/nF1zL/4Doajokn/x3gAfA/wr8GfB3gPuz1/+1vO4/Bf61r/v7
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>That was easy enough.</p>
+<p>That was easy enough. In order to have a large enough corpus of target faces, I included pictures of myself with other people and deleted their faces after the code block ran. It ended up having eleven target faces.</p>
 <h3 id="Model-Training-Data">Model Training Data<a class="anchor-link" href="#Model-Training-Data">&#182;</a></h3><p>Now that we have our faces, we need to create the features and labels that will be used to train our facial recognition model. We've already classified our data based on the face's filename; all we need to do is assign a 1 or 0 to each group for our labels. We'll also need to scale each image to a standard size. Thankfully the output for each bounding box is a square, so we don't have to worry about introducing distortions.</p>
 
 </div>
@@ -19384,7 +19395,7 @@ b9k6v2Rfd6UT+D2kev0D4K993d/nF1zL/4Doajokn/x3gAfA/wr8GfB3gPuz1/+1vO4/Bf61r/v7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Load the two sets of images</span>
@@ -19423,7 +19434,7 @@ b9k6v2Rfd6UT+D2kev0D4K993d/nF1zL/4Doajokn/x3gAfA/wr8GfB3gPuz1/+1vO4/Bf61r/v7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is the target:&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
@@ -19445,11 +19456,11 @@ b9k6v2Rfd6UT+D2kev0D4K993d/nF1zL/4Doajokn/x3gAfA/wr8GfB3gPuz1/+1vO4/Bf61r/v7
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x110e3ed68&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x117960ac8&gt;</pre>
 </div>
 
 </div>
@@ -19671,7 +19682,7 @@ xRe/4+QUX/yOk1N88TtOTvHF7zg5xRe/4+QUX/yOk1P+HwLeA10jshovAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is the target:&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
@@ -19693,11 +19704,11 @@ xRe/4+QUX/yOk1N88TtOTvHF7zg5xRe/4+QUX/yOk1P+HwLeA10jshovAAAAAElFTkSuQmCC
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x111a3d080&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x11803f9e8&gt;</pre>
 </div>
 
 </div>
@@ -19921,7 +19932,7 @@ f2t2AE3ExfsKAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Convert into numpy arrays</span>
@@ -19949,7 +19960,7 @@ f2t2AE3ExfsKAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># DATA/FILE CHECKPOINT</span>
@@ -19961,8 +19972,11 @@ f2t2AE3ExfsKAAAAAElFTkSuQmCC
 <span class="kn">from</span> <span class="nn">findme.imageutil</span> <span class="k">import</span> <span class="n">crop</span><span class="p">,</span> <span class="n">draw_boxes</span><span class="p">,</span> <span class="n">preprocess</span>
 <span class="kn">from</span> <span class="nn">findme.models</span> <span class="k">import</span> <span class="n">find_faces</span>
 
-<span class="n">features</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_imgs/features.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_imgs/labels.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;findme/features.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;findme/labels.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="o">-</span><span class="mi">24</span><span class="p">:]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="o">-</span><span class="mi">24</span><span class="p">:]</span>
 </pre></div>
 
 </div>
@@ -19975,56 +19989,165 @@ f2t2AE3ExfsKAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>That's it for our data. We'll split our data in the next section.</p>
-<h1 id="Am-I-in-This?">Am I in This?<a class="anchor-link" href="#Am-I-in-This?">&#182;</a></h1><p>We've already Now for the model we're going to train. First we need to define our model architecture one layer at a time. We'll create two convolutional layers, two fully-connected layers, and the output layer.</p>
+<p>That's it for our data. You'll notice that we only loaded a subset of our dataset. This ensures that the number of target and non-target images matches, which leads to a better model even though it has less data overall. We'll split our data in the next section.</p>
+<h1 id="Am-I-in-This?">Am I in This?<a class="anchor-link" href="#Am-I-in-This?">&#182;</a></h1><p>We've already created all of our data. Now for the model we're going to train. First, we need to convert our labels to one-hot encoding for use in the model. This means our output layer will have two nodes: True and False.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">OneHotEncoder</span>
+
+<span class="n">enc</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not target label:&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is target label:&#39;</span><span class="p">,</span> <span class="n">labels</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Not target label: [ 1.  0.]
+Is target label: [ 0.  1.]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we need to define our model architecture one layer at a time. We'll create three convolutional layers, two fully-connected layers, and the output layer.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Activation</span><span class="p">,</span> <span class="n">Convolution2D</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">MaxPooling2D</span>
+<span class="kn">from</span> <span class="nn">keras.metrics</span> <span class="k">import</span> <span class="n">binary_accuracy</span>
 <span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">Sequential</span>
 
 <span class="n">SHAPE</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">NB_FILTER</span> <span class="o">=</span> <span class="mi">16</span>
 
 <span class="k">def</span> <span class="nf">make_model</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Sequential</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Create a Sequential Keras model to boolean classify faces&quot;&quot;&quot;</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-    <span class="c1"># First Convolution</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Convolution2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">input_shape</span><span class="o">=</span><span class="n">SHAPE</span><span class="p">))</span>
+    <span class="c1">#First Convolution</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Convolution2D</span><span class="p">(</span><span class="n">NB_FILTER</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">input_shape</span><span class="o">=</span><span class="n">SHAPE</span><span class="p">))</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">())</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span>
     <span class="c1"># Second Convolution</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Convolution2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Convolution2D</span><span class="p">(</span><span class="n">NB_FILTER</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="o">.</span><span class="mi">2</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">())</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="c1"># Third Convolution</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Convolution2D</span><span class="p">(</span><span class="n">NB_FILTER</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">())</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))</span>
     <span class="c1"># Flatten for Fully Connected</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
     <span class="c1"># First Fully Connected</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.4</span><span class="p">))</span>
     <span class="c1"># Second Fully Connected</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span>
     <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
     <span class="c1"># Output</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
-    <span class="c1">#print(model.summary())</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;mean_squared_error&#39;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">binary_accuracy</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">model</span>
 
-<span class="c1">#make_model()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">make_model</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_40 (Conv2D)           (None, 43, 43, 16)        448       
+_________________________________________________________________
+activation_68 (Activation)   (None, 43, 43, 16)        0         
+_________________________________________________________________
+max_pooling2d_40 (MaxPooling (None, 21, 21, 16)        0         
+_________________________________________________________________
+dropout_66 (Dropout)         (None, 21, 21, 16)        0         
+_________________________________________________________________
+conv2d_41 (Conv2D)           (None, 20, 20, 32)        2080      
+_________________________________________________________________
+activation_69 (Activation)   (None, 20, 20, 32)        0         
+_________________________________________________________________
+max_pooling2d_41 (MaxPooling (None, 10, 10, 32)        0         
+_________________________________________________________________
+dropout_67 (Dropout)         (None, 10, 10, 32)        0         
+_________________________________________________________________
+conv2d_42 (Conv2D)           (None, 9, 9, 64)          8256      
+_________________________________________________________________
+activation_70 (Activation)   (None, 9, 9, 64)          0         
+_________________________________________________________________
+max_pooling2d_42 (MaxPooling (None, 4, 4, 64)          0         
+_________________________________________________________________
+dropout_68 (Dropout)         (None, 4, 4, 64)          0         
+_________________________________________________________________
+flatten_14 (Flatten)         (None, 1024)              0         
+_________________________________________________________________
+dense_40 (Dense)             (None, 1024)              1049600   
+_________________________________________________________________
+activation_71 (Activation)   (None, 1024)              0         
+_________________________________________________________________
+dropout_69 (Dropout)         (None, 1024)              0         
+_________________________________________________________________
+dense_41 (Dense)             (None, 1024)              1049600   
+_________________________________________________________________
+activation_72 (Activation)   (None, 1024)              0         
+_________________________________________________________________
+dropout_70 (Dropout)         (None, 1024)              0         
+_________________________________________________________________
+dense_42 (Dense)             (None, 2)                 2050      
+=================================================================
+Total params: 2,112,034.0
+Trainable params: 2,112,034.0
+Non-trainable params: 0.0
+_________________________________________________________________
+None
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -20034,20 +20157,21 @@ f2t2AE3ExfsKAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we need to train the model.</p>
+<p>Now we need to train the model. Even though we have a large model in terms of its parameters, we can still let the model train for many epochs because our feature set is so small. On a MacBook Air, it takes around 30 seconds to train the model with 500 epochs. To save space, I've disabled the full training printout that Keras provides, but you can watch the accuracy progress yourself by changing <code>verbose</code> from <code>0</code> to <code>1</code>.</p>
+<p>We also need to shuffle our data because feeding all of the non-target and target faces into the model in order will lead to a biased model. Scikit-Learn has a convenient function to do this for us. Rather than just calling random, this function preserves the relationship between the feature and label indexes.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">keras.wrappers.scikit_learn</span> <span class="k">import</span> <span class="n">KerasClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="k">import</span> <span class="n">shuffle</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">build_fn</span><span class="o">=</span><span class="n">make_model</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">build_fn</span><span class="o">=</span><span class="n">make_model</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">shuffle</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 </pre></div>
@@ -20060,13 +20184,53 @@ f2t2AE3ExfsKAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x11b668da0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x11c4fce48&gt;</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's quickly see how well it trained to the given data. Because the dataset is so small, we didn't want to keep any for a test or validation set. We'll test it on a new image later.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Non-target faces predicted correctly:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">preds</span><span class="p">[:</span><span class="mi">12</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Non-target faces predicted correctly:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Non-target faces predicted correctly: True
+Non-target faces predicted correctly: True
+</pre>
+</div>
 </div>
 
 </div>
@@ -20094,48 +20258,20 @@ f2t2AE3ExfsKAAAAAElFTkSuQmCC
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicts correctly for target in training data:&#39;</span><span class="p">,</span>
-      <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">features</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]]))[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Predicts correctly for target in training data: True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Putting-It-Together">Putting It Together<a class="anchor-link" href="#Putting-It-Together">&#182;</a></h2><p>Lastly, let's create a single function that takes in an image and returns if the target was found and where.</p>
-<p>First we'll load in our test image.</p>
+<p>First we'll load in our test image. Keep in mind that the model we just trained has never seen this image before and it contains multiple people (and a manatee statue).</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_img</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;test_imgs/evaluate/me1.jpg&#39;</span><span class="p">)</span>
@@ -20150,11 +20286,11 @@ f2t2AE3ExfsKAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x11c1c8a58&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x130018d30&gt;</pre>
 </div>
 
 </div>
@@ -22883,7 +23019,7 @@ TgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">target_in_img</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">int</span><span class="p">])):</span>
@@ -22920,7 +23056,7 @@ TgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">found</span><span class="p">,</span> <span class="n">bbox</span> <span class="o">=</span> <span class="n">target_in_img</span><span class="p">(</span><span class="n">test_img</span><span class="p">)</span>
